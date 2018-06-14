@@ -3,6 +3,8 @@ package kh.web.utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -41,7 +43,38 @@ public class LoginDAO {
 		pstat.close();
 		rs.close();
 		
-		return result;
+		return result;		
+	}
+	public List<LoginDTO> selectData()throws Exception{
+		Connection con = this.getConnetion();
+		String sql ="select * from login";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		ResultSet rs = pstat.executeQuery();
 		
+		List<LoginDTO> result = new ArrayList<>();
+		while(rs.next()) {
+			LoginDTO dto = new LoginDTO();
+			dto.setSeq(rs.getInt("seq"));
+			dto.setId(rs.getString("id"));
+			dto.setPassword(rs.getString("password"));
+			dto.setName(rs.getString("name"));
+			result.add(dto);
+		}
+		pstat.close();
+		con.close();
+		rs.close();
+		return result;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
