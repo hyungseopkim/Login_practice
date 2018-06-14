@@ -35,52 +35,48 @@
 
 
 	<c:choose>
-		<c:when test="${SessonScope.loginId}">
-					<div class="py-5" id="AllWrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="btn-group">
-						<a href="#" class="btn btn-primary">Go Board</a> <a href="#"
-							class="btn btn-primary">No Name</a> <a href="#"
-							class="btn btn-primary">No Name</a>
+		<c:when test="${loginId == null}">
+			<div class="py-5" id="AllWrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<form action="Login.do" method="post">
+								<div class="form-group">
+									<label>ID Enter</label> <input type="text" class="form-control"
+										name="id" placeholder="Enter id">
+									<smallclass="form-texttext-muted">We'll never
+									share your id with anyone else.</small>
+								</div>
+								<div class="form-group">
+									<label>Password</label> <input type="password"
+										class="form-control" name="password" placeholder="Password">
+								</div>
+								<button class="btn btn-primary">Login</button>
+								<a class="btn btn-primary" href="join.jsp">Sign up</a>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	
 
 		</c:when>
 		<c:otherwise>
-
-
-	
-	<div class="py-5" id="AllWrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<form action="Login.do" method="post">
-						<div class="form-group">
-							<label>ID Enter</label>
-							<input type="text" class="form-control" name="id" placeholder="Enter id">
-							<smallclass ="form-texttext-muted">We'll never
-							share your id with anyone else.</small>
+			<div class="py-5" id="AllWrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="btn-group">
+								<a href="#" class="btn btn-primary">Go Board</a> <a href="#"
+									class="btn btn-primary">No Name</a> <a href="#"
+									class="btn btn-primary">No Name</a>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Password</label> 
-							<input type="password" class="form-control" name="password" placeholder="Password">
-						</div>
-						<button class="btn btn-primary">Login</button>
-						<a class="btn btn-primary" href="#">Sign up</a>
-					</form>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
 		</c:otherwise>
-	    </c:choose>
+	</c:choose>
 
 
 </body>

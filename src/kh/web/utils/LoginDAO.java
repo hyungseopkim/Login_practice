@@ -65,6 +65,22 @@ public class LoginDAO {
 		rs.close();
 		return result;
 	}
+	
+	public boolean idCheck(String id)throws Exception{
+		Connection con = this.getConnetion();
+		String sql ="select * from login where id=?";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		pstat.setString(1, id);
+
+		ResultSet rs =	pstat.executeQuery();
+		
+		boolean result =rs.next();
+		con.close();
+		pstat.close();
+		rs.close();
+		
+		return result;		
+	}
 }
 
 
