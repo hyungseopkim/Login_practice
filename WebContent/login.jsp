@@ -27,6 +27,7 @@
 <title>Insert title here</title>
 
 </head>
+
 <body>
 
 	<div class="py-5">
@@ -35,13 +36,12 @@
 				<div class="col-md-12">
 					<form class="">
 						<div class="form-group">
-							<label>ID Enter</label> <input type="email"
-								class="form-control" placeholder="Enter id"> <small
-								class="form-text text-muted">We'll never share your id with anyone else.</small>
+							<label>ID Enter</label> <input type="email" class="form-control" name="id" placeholder="Enter id"> 
+								<smallclass="form-text text-muted">We'll never share your id with anyone else.</small>
 						</div>
 						<div class="form-group">
-							<label>Password</label> <input type="password"
-								class="form-control" placeholder="Password">
+							<label>Password</label> 
+							<input type="password" class="form-control" name="password" placeholder="Password">
 						</div>
 						<button type="submit" class="btn btn-primary">Login</button>
 					</form>
@@ -50,7 +50,7 @@
 		</div>
 	</div>
 	
-	
+
 
 
 </body>
