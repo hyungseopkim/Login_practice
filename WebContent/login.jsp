@@ -35,35 +35,8 @@
 
 
 	<c:choose>
-		<c:when test="${id.isEmpty()}">
-	<div class="py-5" id="AllWrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<form class="">
-						<div class="form-group">
-							<label>ID Enter</label> <input type="email" class="form-control"
-								name="id" placeholder="Enter id">
-							<smallclass ="form-texttext-muted">We'll never
-							share your id with anyone else.</small>
-						</div>
-						<div class="form-group">
-							<label>Password</label> <input type="password"
-								class="form-control" name="password" placeholder="Password">
-						</div>
-						<button type="submit" class="btn btn-primary">Login</button>
-						<a class="btn btn-primary" href="#">Sign up</a>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-		</c:when>
-		<c:otherwise>
-
-	
-	<div class="py-5" id="AllWrapper">
+		<c:when test="${SessonScope.loginId}">
+					<div class="py-5" id="AllWrapper">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -76,7 +49,35 @@
 			</div>
 		</div>
 	</div>
+	
 
+		</c:when>
+		<c:otherwise>
+
+
+	
+	<div class="py-5" id="AllWrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form action="Login.do" method="post">
+						<div class="form-group">
+							<label>ID Enter</label>
+							<input type="text" class="form-control" name="id" placeholder="Enter id">
+							<smallclass ="form-texttext-muted">We'll never
+							share your id with anyone else.</small>
+						</div>
+						<div class="form-group">
+							<label>Password</label> 
+							<input type="password" class="form-control" name="password" placeholder="Password">
+						</div>
+						<button class="btn btn-primary">Login</button>
+						<a class="btn btn-primary" href="#">Sign up</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 		</c:otherwise>
 	    </c:choose>

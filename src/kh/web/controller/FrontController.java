@@ -28,18 +28,22 @@ public class FrontController extends HttpServlet {
 			
 			boolean isRedirect = true;
 			String dst = null;
+			System.out.println(command);
 			
 			if(command.equals("/Login.do")) {
 				String id = request.getParameter("id");
 				String password = request.getParameter("password");
 				boolean result = ldao.isIdExist(id, password);
-				
+				System.out.println(result);
+				System.out.println(id);
+				System.out.println(password);
 				if(result) {
 					request.getSession().setAttribute("loginId",id);
+					isRedirect = false;
+					dst ="login.jsp";
 				}
 				
-				isRedirect = false;
-				dst = "login.jsp";
+				
 				
 			} else if (command.equals("/SignUp.do")) {
 				String id = request.getParameter("id");
