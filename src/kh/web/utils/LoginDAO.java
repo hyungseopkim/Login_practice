@@ -36,13 +36,12 @@ public class LoginDAO {
 		pstat.setString(1, id);
 		pstat.setString(2, password);
 
-		ResultSet rs =	pstat.executeQuery();
-		
+		ResultSet rs =	pstat.executeQuery();	
 		boolean result =rs.next();
 		con.close();
 		pstat.close();
 		rs.close();
-		
+
 		return result;		
 	}
 	public List<LoginDTO> selectData()throws Exception{
@@ -50,7 +49,7 @@ public class LoginDAO {
 		String sql ="select * from login";
 		PreparedStatement pstat = con.prepareStatement(sql);
 		ResultSet rs = pstat.executeQuery();
-		
+
 		List<LoginDTO> result = new ArrayList<>();
 		while(rs.next()) {
 			LoginDTO dto = new LoginDTO();
@@ -82,7 +81,6 @@ public class LoginDAO {
 		return result;		
 	}
 }
-
 
 
 
