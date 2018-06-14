@@ -2,6 +2,7 @@ package kh.web.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,9 +51,19 @@ public class FrontController extends HttpServlet {
 				
 				isRedirect = false;
 				dst = "login.jsp";
+				
+				
 			} else if (command.equals("/BoardList.do")) {
 				
 			}
+			
+			if(isRedirect) {
+				response.sendRedirect(dst);
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher(dst);
+				rd.forward(request, response);
+			}
+			
 		} catch (Exception e) {
 		}
 		
