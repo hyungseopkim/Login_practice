@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kh.web.utils.LoginDAO;
+import kh.web.utils.LoginDTO;
 
 
 @WebServlet("*.do")
@@ -36,8 +37,19 @@ public class FrontController extends HttpServlet {
 					request.getSession().setAttribute("loginId",id);
 				}
 				
-			} else if (command.equals("/SignUp.do")) {
+				isRedirect = false;
+				dst = "login.jsp";
 				
+			} else if (command.equals("/SignUp.do")) {
+				String id = request.getParameter("id");
+				String password = request.getParameter("password");
+				String name = request.getParameter("name");
+				
+				LoginDTO dto = new LoginDTO(0, id, password, name);
+				int result = ldao.insertData(id, password, name);
+				
+				isRedirect = false;
+				dst = "login.jsp";
 			} else if (command.equals("/BoardList.do")) {
 				
 			}
