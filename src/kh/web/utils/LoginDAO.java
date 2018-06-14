@@ -2,6 +2,7 @@ package kh.web.utils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -26,5 +27,21 @@ public class LoginDAO {
 		con.close();
 		return result;
 	}
-	
+	public boolean isIdExist(String id,String password)throws Exception{
+		Connection con = this.getConnetion();
+		String sql ="select * from login where id=? and password =?";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		pstat.setString(1, id);
+		pstat.setString(2, password);
+
+		ResultSet rs =	pstat.executeQuery();
+		
+		boolean result =rs.next();
+		con.close();
+		pstat.close();
+		rs.close();
+		
+		return result;
+		
+	}
 }
