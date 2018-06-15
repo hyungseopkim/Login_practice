@@ -27,13 +27,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<style>
+body{
+	background-color: #e3f4be;
+}
+</style>
+
 </head>
 
 <body>
-
-
-
-
 	<c:choose>
 		<c:when test="${loginId == null}">
 			<div class="py-5" id="AllWrapper">
