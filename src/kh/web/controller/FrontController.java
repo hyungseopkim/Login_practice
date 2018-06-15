@@ -1,6 +1,7 @@
 package kh.web.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kh.web.utils.ArticleDAO;
+import kh.web.utils.ArticleDTO;
 import kh.web.utils.LoginDAO;
 import kh.web.utils.LoginDTO;
 
@@ -25,18 +28,16 @@ public class FrontController extends HttpServlet {
 			String command = requestURI.substring(contextPath.length());
 			
 			LoginDAO ldao = new LoginDAO();
+			ArticleDAO adao = new ArticleDAO();
 			
 			boolean isRedirect = true;
 			String dst = null;
-			System.out.println(command);
 			
 			if(command.equals("/Login.do")) {
 				String id = request.getParameter("id");
 				String password = request.getParameter("password");
 				boolean result = ldao.isIdExist(id, password);
-				System.out.println(result);
-				System.out.println(id);
-				System.out.println(password);
+
 				if(result) {
 					request.getSession().setAttribute("loginId",id);
 					isRedirect = false;
@@ -58,7 +59,12 @@ public class FrontController extends HttpServlet {
 				
 				
 			} else if (command.equals("/BoardList.do")) {
+				List<ArticleDTO> result = adao.selectData();
 				
+				request.setAttribute("result", result);
+				
+				isRedirect = false;
+				dst = "boardList.jsp";
 			}
 			
 			if(isRedirect) {

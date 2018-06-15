@@ -66,9 +66,10 @@ body{
 			<div class="py-5" id="AllWrapper">
 				<div class="container">
 					<div class="row">
+						<p class="ml-3">${loginId } 님 환영합니다.</p>
 						<div class="col-md-12">
 							<div class="btn-group">
-								<a href="#" class="btn btn-primary">Go Board</a> <a href="#"
+								<a href="BoardList.do" class="btn btn-primary">Go Board</a> <a href="#"
 									class="btn btn-primary">No Name</a> <a href="#"
 									class="btn btn-primary">No Name</a>
 							</div>
