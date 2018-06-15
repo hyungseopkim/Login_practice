@@ -81,7 +81,7 @@
 </head>
 
 <body>
-	<form action="login.jsp" method="get">
+	<form action="SignUp.do" method="post">
 		<div class="py-5" id="AllWrapper">
 			<div class="container">
 				<div class="row">
@@ -91,7 +91,7 @@
 							<div class="input-group">
 								<input type="text" class="form-control mr-1"
 									placeholder="Id"
-									aria-describedby="basic-addon2" id="id"> 
+									aria-describedby="basic-addon2" id="id" name=id> 
 								<input type="text" id="bt1" class="btn btn-primary" size="1"; value="Check">
 							</div>
 							<div class="form-group">
